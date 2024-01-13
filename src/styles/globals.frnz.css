@@ -1,0 +1,39 @@
+:root {
+    /* backgound color: 60% */
+    --bgc: #010000;
+    /* primary color: 30% */
+    --primary: rgb(196, 66, 205);
+    /* secondary color: 9% */
+    --secondary: rgb(98, 0, 255);
+    /* success color: 1% */
+    --success: rgb(166, 255, 187);
+    /* --success: rgb(127, 223, 59); */
+    --danger: red;
+    /* text colors  */
+    --textDark: rgb(208, 245, 24);
+    --textLight: rgb(255, 255, 238);
+    --textMuted: rgb(237, 237, 155);
+    /*global shadow on borders */
+    --shadow: rgba(0, 0, 0, 0.2);
+    /* --gradient: */
+    --gradientc1: #e2b0ff;
+    --gradientc2: #9f44d3;
+    --gradient: linear-gradient(90deg, var(--gradientc1) 10%, var(--gradientc2) 100%);
+
+    --gradientp1: var(--primary);
+    --gradientp2: var(--secondary);
+    --gradientbgc: linear-gradient(90deg, var(--gradientp1) 10%, var(--gradientp2) 100%);
+
+    --fav_blue: #4e4ee3;
+    --fav_pink: #ff9ff3;
+    --fav_purple: #b4238e;
+    --fav_sky: #69e9f5;
+    --fav_sunrise: #ff6700;
+    --fav_marron: #5f27cd;
+
+    --ff0: var(--font-roboto);
+    --ff1: var(--font-poppins);
+    --ff2: var(--font-nunito);
+    --ff3: var(--font-cabin);
+    --ff4: var(--font-lora);
+}

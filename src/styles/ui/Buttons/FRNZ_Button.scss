@@ -1,0 +1,28 @@
+.frnz_ui_button_default {
+  width: fit-content;
+  padding: 5px 10px;
+  background-color: red;
+  color: green;
+  &:hover {
+    color: red;
+    background-color: red;
+  }
+}
+
+.frnz_ui_button_gsap {
+  @extend .frnz_ui_button_default;
+  animation: frnz_ui_button_gsap 2s linear infinite;
+}
+@keyframes frnz_ui_button_gsap {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+}

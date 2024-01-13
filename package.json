@@ -1,0 +1,49 @@
+{
+  "name": "frnz-ui",
+  "version": "0.0.1",
+  "description": "A React-UI library for creating front-end development",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && rollup -c --bundleConfigAsCjs",
+    "dev": "rimraf dist && rollup -c --bundleConfigAsCjs --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekcsein/frnz-ui.git"
+  },
+  "author": "vivekcse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vivekcsein/frnz-ui/issues"
+  },
+  "homepage": "https://github.com/vivekcsein/frnz-ui#readme",
+  "keywords": [
+    "react",
+    "component-library",
+    "front-end",
+    "frnz-ui"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.5",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-scss": "^3.0.0",
+    "sass": "^1.69.7",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist"
+  ]
+}

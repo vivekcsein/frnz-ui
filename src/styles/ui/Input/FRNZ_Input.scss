@@ -1,0 +1,10 @@
+.frnz_input_default {
+  width: 300px;
+  padding: 5px 10px;
+  color: red;
+}
+
+.frnz_input_gsap {
+  @extend .frnz_input_default;
+  background-color: #f9f9f9;
+}
