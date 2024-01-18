@@ -28,6 +28,12 @@
 
 </p>
 
+<p>import css from frnz-ui
+    
+    import "frnz-ui/dist/styles/frnz_styles.css";
+
+</p>
+
 <p>id is a string, the label is a string, and the variant is a string. you have to provide as props</p>
 
 <p>one example
