@@ -1,8 +1,9 @@
 import React from "react";
 import "../../../styles/ui/Input/FRNZ_Input.scss";
-import FRNZ_Input_default from "./FRNZ_Input_default"
+import FRNZ_Input_default from "./FRNZ_Input_default";
+import { FRNZ_InputProps } from "../../../types/ui.types";
 
-const FRNZ_Input: React.FunctionComponent<FRNZ_ui_InputProps> = ({
+const FRNZ_Input: React.FunctionComponent<FRNZ_InputProps> = ({
   id,
   variant,
   name,

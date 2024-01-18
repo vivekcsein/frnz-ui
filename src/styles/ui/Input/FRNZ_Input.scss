@@ -1,7 +1,7 @@
 .frnz_input_default {
   width: 300px;
   padding: 5px 10px;
-  color: red;
+  color: nth($list: $togglecp, $n: 2);
 }
 
 .frnz_input_gsap {

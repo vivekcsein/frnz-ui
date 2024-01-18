@@ -1,0 +1,75 @@
+$breakpoints: (
+  "nodisplay": 0,
+  "iphone": 360px,
+  "mobile": 480px,
+  "phone": 720px,
+  "tablet": 960px,
+  "laptop": 1368px,
+  "desktop": 1920,
+  "desktop2k": 2160,
+);
+
+@mixin iphone {
+  @media ((min-width: map-get($breakpoints,"nodisplay") ) and  (max-width: map-get($breakpoints,"iphone"))) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media ((min-width: map-get($breakpoints,"iphone") ) and  (max-width: map-get($breakpoints,"mobile"))) {
+    @content;
+  }
+}
+@mixin phone {
+  @media ((min-width: map-get($breakpoints,"mobile") ) and  (max-width: map-get($breakpoints,"phone"))) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media ((min-width: map-get($breakpoints,"mobile") ) and  (max-width: map-get($breakpoints,"tablet"))) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media ((min-width: map-get($breakpoints,"tablet") ) and  (max-width: map-get($breakpoints,"laptop"))) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media ((min-width: map-get($breakpoints,"laptop") ) and  (max-width: map-get($breakpoints,"desktop"))) {
+    @content;
+  }
+}
+
+@mixin desktop2k {
+  @media ((min-width: map-get($breakpoints,"desktop") ) and  (max-width: map-get($breakpoints,"desktop2k"))) {
+    @content;
+  }
+}
+
+@mixin res_desktop {
+  @media (width>960px) {
+    @content;
+  }
+}
+
+@mixin res_phone {
+  @media (width<=960px) {
+    @content;
+  }
+}
+
+@mixin breakpoint($bp: 1920px) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin res_phone_custom($bp: 720px) {
+  @media (width<=$bp) {
+    @content;
+  }
+}

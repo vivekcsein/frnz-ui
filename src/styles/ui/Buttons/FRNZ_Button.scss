@@ -1,28 +1,843 @@
-.frnz_ui_button_default {
-  width: fit-content;
-  padding: 5px 10px;
-  background-color: red;
-  color: green;
+//created by vivekcse for frnz-ui
+// https://github.com/vivekcsein/frnz-ui
+
+$textcolor: white;
+$bgcolor: rgb(122, 239, 20);
+
+$small: 0.5rem;
+$large: 1rem;
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin frnz_ui_color_exchangeonHover(
+  $bgcolor: nth($list: $togglecp, $n: 1),
+  $textcolor: nth($list: $togglecp, $n: 2)
+) {
+  color: $textcolor;
+  background-color: $bgcolor;
   &:hover {
-    color: red;
-    background-color: red;
+    color: $bgcolor;
+    background-color: $textcolor;
   }
 }
 
-.frnz_ui_button_gsap {
-  @extend .frnz_ui_button_default;
-  animation: frnz_ui_button_gsap 2s linear infinite;
+//button basic settings
+@mixin frnz_ui_button_basics {
+  cursor: pointer;
+  text-decoration: none;
+  &:after,
+  :before {
+    border: 0 solid;
+    box-sizing: border-box;
+  }
+  -webkit-mask-image: -webkit-radial-gradient(
+    nth($list: $togglecp, $n: 1),
+    nth($list: $togglecp, $n: 2)
+  );
+  //   -webkit-appearance: button;
+  //   -webkit-mask-image: none;
+  -webkit-tap-highlight-color: transparent;
+
+  //   svg {
+  //     display: block;
+  //     vertical-align: middle;
+  //   }
+  &:disabled {
+    cursor: default;
+  }
+  &:-moz-focusring {
+    outline: auto;
+  }
+  [hidden] {
+    display: none;
+  }
 }
-@keyframes frnz_ui_button_gsap {
+
+@mixin frnz_ui_button_colorfills {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 4px solid $bgcolor;
+  border-radius: 0.6em;
+  color: $textcolor;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 1.2em 2.8em;
+  text-align: center;
+  &:hover,
+  &:focus {
+    color: $bgcolor;
+    outline: 0;
+  }
+}
+
+// defualt button css
+.frnz_ui_button_default {
+  @include frnz_ui_color_exchangeonHover($bgcolor, $textcolor);
+  @include frnz_ui_button_basics;
+  cursor: pointer;
+  width: fit-content;
+  padding: 1rem 2rem;
+  margin: 0;
+  font-size: 100%;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: all 0.3s linear;
+}
+
+.frnz_ui_button_colorfill {
+  @include frnz_ui_button_colorfills;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 40px 40px $bgcolor inset;
+  }
+}
+
+.frnz_ui_button_colorfill2 {
+  @include frnz_ui_button_colorfills;
+  border-color: $bgcolor;
+  color: $textcolor;
+  box-shadow: 0 0 40px 40px $bgcolor inset, 0 0 0 0 $bgcolor;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 $bgcolor inset, 0 0 10px 4px $bgcolor;
+  }
+}
+
+.frnz_ui_button_attention {
+  border: 0 solid;
+  -webkit-tap-highlight-color: transparent;
+  background-color: $bgcolor;
+  background-image: none;
+  color: $textcolor;
+  cursor: pointer;
+  font-size: 100%;
+  line-height: 1.5;
+  padding: 0;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+  border: 1px solid;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2em transparent;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  padding: 1.2rem 3rem;
+  position: relative;
+}
+
+.frnz_ui_button_arrow_slide {
+  -webkit-tap-highlight-color: transparent;
+  background-color: $bgcolor;
+  background-image: none;
+  color: $textcolor;
+  cursor: pointer;
+  font-size: 100%;
+  line-height: 1.5;
+  --tilt: 30px;
+  border-width: 1px;
+  display: grid;
+  padding: 1.2rem 3rem;
+  place-content: center;
+  overflow: hidden;
+  position: relative;
+
+  &:before {
+    border: 0 solid;
+    box-sizing: border-box;
+    -webkit-animation: move-out 0.3s ease;
+    animation: move-out 0.3s ease;
+    background: $textcolor;
+    -webkit-clip-path: polygon(
+      0 0,
+      calc(100% - var(--tilt)) 0,
+      100% 50%,
+      calc(100% - var(--tilt)) 100%,
+      0 100%
+    );
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--tilt)) 0,
+      100% 50%,
+      calc(100% - var(--tilt)) 100%,
+      0 100%
+    );
+    content: "";
+    height: 100%;
+    left: calc(-100% - var(--tilt));
+    position: absolute;
+    top: 0;
+    width: calc(100% + var(--tilt));
+  }
+  .frnz_ui_button_text_outerlabel {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .frnz_ui_button_text_innerlabel {
+    display: block;
+    font-weight: 900;
+    mix-blend-mode: difference;
+    position: relative;
+  }
+  &:hover {
+    .frnz_ui_button_text_innerlabel {
+      -webkit-animation: move-right-alternate 0.3s ease forwards;
+      animation: move-right-alternate 0.3s ease forwards;
+    }
+    &:before {
+      -webkit-animation: move-in 0.3s ease forwards;
+      animation: move-in 0.3s ease forwards;
+    }
+  }
+}
+
+.frnz_ui_button_rainbowfill {
+  $color_1: #ff0000;
+  $color_2: #0000ff;
+
+  background-color: $bgcolor;
+  background-image: none;
+  cursor: pointer;
+  //   font-size: 100%;
+  //   line-height: 1.5;
+  background: linear-gradient(90deg, $color_1, $color_2);
+  border-radius: 999px;
+  display: block;
+  overflow: hidden;
+  padding: 1.8rem 5rem;
+  position: relative;
+
+  .frnz_ui_button_text_innerlabel {
+    background: $bgcolor;
+    border-radius: 999px;
+    color: $textcolor;
+    display: grid;
+    inset: 5px;
+    place-items: center;
+    position: absolute;
+    transition: all 0.3s;
+  }
+  &:hover {
+    span {
+      background: none;
+    }
+  }
+}
+
+.frnz_ui_button_spotlight {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px $shadow;
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: $bgcolor;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $textcolor;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid $shadow;
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
+  &:hover {
+    transform: scale(1.05);
+    border-color: $bgcolor;
+    .icon {
+      transform: translate(4px);
+    }
+    &::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+  }
+}
+
+.frnz_ui_button_celebrationn {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 6px;
+  border: none;
+  color: $textcolor;
+  cursor: pointer;
+  background-color: $bgcolor;
+  transition: all 0.2s ease;
+  &:active {
+    transform: scale(0.96);
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+  }
+  &:hover {
+    &:before {
+      top: -70%;
+      background-image: radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(
+          circle,
+          transparent 20%,
+          $textcolor 20%,
+          transparent 30%
+        ),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(
+          circle,
+          transparent 10%,
+          $textcolor 15%,
+          transparent 20%
+        ),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%);
+      background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
+        15% 15%, 10% 10%, 18% 18%;
+      background-position: 50% 120%;
+      animation: greentopBubbles 0.6s ease;
+    }
+    &::after {
+      bottom: -70%;
+      background-image: radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(
+          circle,
+          transparent 10%,
+          $textcolor 15%,
+          transparent 20%
+        ),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%),
+        radial-gradient(circle, $textcolor 20%, transparent 20%);
+      background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%,
+        18% 18%;
+      background-position: 50% 0%;
+      animation: greenbottomBubbles 0.6s ease;
+    }
+  }
+}
+
+@keyframes orangeTopBubbles {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
   }
   50% {
-    opacity: 0.5;
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
   }
   100% {
-    transform: scale(0.8);
-    opacity: 0.3;
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+@keyframes orangeBottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+.frnz_ui_button_celebration {
+  position: relative;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  color: $textcolor;
+  cursor: pointer;
+  background-color: $bgcolor;
+  transition: all 0.2s ease;
+  &:active {
+    transform: scale(0.95);
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+  }
+  &:hover {
+    &:before {
+      top: -70%;
+      background-image: radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, #ff7f50 20%, transparent 30%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #ff7f50 15%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%);
+      background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
+        15% 15%, 10% 10%, 18% 18%;
+      background-position: 50% 120%;
+      animation: orangeTopBubbles 0.6s ease;
+    }
+    &::after {
+      bottom: -70%;
+      background-image: radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #ff7f50 15%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%),
+        radial-gradient(circle, #ff7f50 20%, transparent 20%);
+      background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%,
+        18% 18%;
+      background-position: 50% 0%;
+      animation: orangeBottomBubbles 0.6s ease;
+    }
+  }
+}
+
+.frnz_ui_button_backtotop {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px $bgcolor;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  &:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: $bgcolor;
+    align-items: center;
+    .svgIcon {
+      transition-duration: 0.3s;
+      transform: translateY(-200%);
+    }
+    &::before {
+      font-size: 13px;
+      opacity: 1;
+      bottom: unset;
+      transition-duration: 0.3s;
+    }
+  }
+  &::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Back to Top";
+    color: $textcolor;
+    font-size: 0px;
+  }
+}
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+  path {
+    fill: $textcolor;
+  }
+}
+
+.frnz_ui_button_starlight {
+  $colorfill: nth(
+    $list: $togglecp,
+    $n: 2,
+  );
+
+  position: relative;
+  padding: 12px 35px;
+  background: nth($list: $togglecp, $n: 2);
+  font-size: 17px;
+  font-weight: 500;
+  border: 4px solid nth($list: $togglecp, $n: 2);
+  border-radius: 8px;
+  box-shadow: 0 0 0 $boxShadow;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  .starlight_star1 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 0 $colorfill);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+  }
+  .starlight_star2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 $colorfill);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+  .starlight_star3 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 $colorfill);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+  .starlight_star4 {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 0 $colorfill);
+    z-index: -5;
+    transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+  .starlight_star5 {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 $colorfill);
+    z-index: -5;
+    transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+  }
+  .starlight_star6 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 $colorfill);
+    z-index: -5;
+    transition: all 0.8s ease;
+  }
+
+  &:hover {
+    background: transparent;
+    box-shadow: 0 0 25px $boxShadow;
+    .starlight_star1 {
+      position: absolute;
+      top: -80%;
+      left: -30%;
+      width: 25px;
+      height: auto;
+      filter: drop-shadow(0 0 10px $colorfill);
+      z-index: 2;
+    }
+    .starlight_star2 {
+      position: absolute;
+      top: -25%;
+      left: 10%;
+      width: 15px;
+      height: auto;
+      filter: drop-shadow(0 0 10px $colorfill);
+      z-index: 2;
+    }
+    .starlight_star3 {
+      position: absolute;
+      top: 55%;
+      left: 25%;
+      width: 5px;
+      height: auto;
+      filter: drop-shadow(0 0 10px $colorfill);
+      z-index: 2;
+    }
+    .starlight_star4 {
+      position: absolute;
+      top: 30%;
+      left: 80%;
+      width: 8px;
+      height: auto;
+      filter: drop-shadow(0 0 10px $colorfill);
+      z-index: 2;
+    }
+    .starlight_star5 {
+      position: absolute;
+      top: 25%;
+      left: 115%;
+      width: 15px;
+      height: auto;
+      filter: drop-shadow(0 0 10px $colorfill);
+      z-index: 2;
+    }
+    .starlight_star6 {
+      position: absolute;
+      top: 5%;
+      left: 60%;
+      width: 5px;
+      height: auto;
+      filter: drop-shadow(0 0 10px $colorfill);
+      z-index: 2;
+    }
+  }
+
+  .svg_starlight_filler {
+    fill: $colorfill;
+  }
+}
+
+.frnz_ui_button_rainbow_border {
+  $color_1: #fff;
+  $color_2: #000;
+
+  @keyframes glowing {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: $color_1;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  &:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  &:active {
+    color: $color_2;
+    &:after {
+      background: transparent;
+    }
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+  &:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+}
+//all the animations
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 $textcolor;
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 $textcolor;
+  }
+}
+
+@-webkit-keyframes move-right-alternate {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(80%);
+  }
+  51% {
+    transform: translateX(-80%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes move-right-alternate {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(80%);
+  }
+  51% {
+    transform: translateX(-80%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes move-in {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes move-in {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@-webkit-keyframes move-out {
+  0% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+@keyframes move-out {
+  0% {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+  60% {
+    left: 100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }

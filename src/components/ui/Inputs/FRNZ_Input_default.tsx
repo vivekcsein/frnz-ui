@@ -1,6 +1,6 @@
 import React from "react";
-
-const FRNZ_Input_default = (props: FRNZ_context_InputProps) => {
+import { FRNZ_InputProps } from "../../../types/ui.types";
+const FRNZ_Input_default = (props: FRNZ_InputProps) => {
   return (
     <input
       className="frnz_input_default"

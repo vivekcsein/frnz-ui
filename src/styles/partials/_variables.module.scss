@@ -1,0 +1,83 @@
+/*varibales created by VivekCSE */
+
+/* backgound color: 60% */
+$bgc: #010000;
+/* primary color: 30% */
+$primary: #c442cd;
+/* secondary color: 9% */
+$secondary: #6200ff;
+/* success color: 1% */
+$success: #a6ffbb;
+/* danger/error color: .1% */
+$danger: #ff0000;
+/* text colors  */
+$textDark: #d0f518;
+$textLight: #ffffee;
+$textMuted: #eded9b;
+/*global shadow on borders */
+$shadow: #00000033;
+$shadowLight: #fec195;
+/* --gradient: */
+
+$gradientc1: #e2b0ff;
+$gradientc2: #9f44d3;
+$gradient: linear-gradient(90deg, $gradientc1 10%, $gradientc2 100%);
+
+$color_scheme: light dark;
+$dark_mode: #1a1a1a;
+$night_mode: #213547;
+$light_mode: #cccccc;
+
+// $font_family: (var(--ff1), var(--ff2), var(--ff3), var(--ff4));
+$font_size_default: 1.2rem;
+$font_size_onHover: 1.5rem;
+$Header_height: 5rem;
+
+/* toggle color pallet(cp) */
+$togglecp: (
+  $bgc,
+  $primary,
+  $secondary,
+  $success,
+  $danger,
+  $textDark,
+  $textLight,
+  $textMuted,
+  $shadow,
+  $shadowLight
+);
+
+/* toggle background color pallet(bg) */
+$togglebg: ($bgc, $dark_mode, $night_mode, $light_mode);
+/* toggle favourite color pallet(tc) */
+$togglefav: (#4e4ee3, #ff9ff3, #cb37a3, #69e9f5, #ff6700, #5f27cd, #fec195);
+$togglefavShadow: (
+  #4e4ee3d6,
+  #ff9ff3d6,
+  #cb37a3d6,
+  #69e9f5d6,
+  #ff6700d6,
+  #5f27cdd6,
+  #fec195d6
+);
+
+$boxShadow: 0 0 5px
+    nth(
+      $list: $togglecp,
+      $n: 2,
+    ),
+  0 0 25px
+    nth(
+      $list: $togglecp,
+      $n: 2,
+    ),
+  0 0 50px
+    nth(
+      $list: $togglecp,
+      $n: 2,
+    ),
+  0 0 100px
+    nth(
+      $list: $togglecp,
+      $n: 2,
+    );

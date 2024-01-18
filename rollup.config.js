@@ -4,7 +4,6 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import { dts } from 'rollup-plugin-dts';
 import scss from 'rollup-plugin-scss';
-const fs = require('fs');
 const packageJson = require("./package.json");
 
 const extensions = [".js", ".jsx", ".ts", ".tsx", ".css"];
@@ -34,6 +33,7 @@ export default [
             typescript({ tsconfig: './tsconfig.json' }),
             scss({
                 // insert: true,
+                // prependData: `@use 'src/styles/Vars.scss' as *;`,
                 output: 'dist/styles/frnz_styles.css'
             })
         ],
@@ -43,6 +43,6 @@ export default [
         input: 'dist/esm/types/index.d.ts',
         output: [{ file: 'dist/index.d.ts', format: "esm" }],
         plugins: [dts()],
-        external: [/\.scss$/, /\.css$/],
+        external: [/\.(css|less|scss)$/]
     },
 ];
