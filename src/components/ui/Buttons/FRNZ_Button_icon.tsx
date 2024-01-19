@@ -8,7 +8,7 @@ const FRNZ_Button_icon: React.FunctionComponent<FRNZ_ButtonProps> = ({
 }) => {
   return (
     <button
-      className="frnz_ui_button_spotlight"
+      className="frnz_ui_button_Spotlight"
       style={fx ? fx : {}}
       {...props}
     >

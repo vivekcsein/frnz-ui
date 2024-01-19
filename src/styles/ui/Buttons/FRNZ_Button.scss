@@ -30,7 +30,7 @@ $large: 1rem;
   transition: all 0.3s linear;
 }
 
-.frnz_ui_button_colorfill {
+.frnz_ui_button_BgcolorIN {
   @include frnz_ui_button_colorfills;
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   &:hover,
@@ -39,7 +39,8 @@ $large: 1rem;
   }
 }
 
-.frnz_ui_button_colorfill2 {
+// colorfill2
+.frnz_ui_button_BgcolorOut {
   @include frnz_ui_button_colorfills;
   border-color: $bgcolor;
   color: $textcolor;
@@ -51,18 +52,18 @@ $large: 1rem;
   }
 }
 
-.frnz_ui_button_attention {
+//i want attention button
+.frnz_ui_button_I_wantAttention {
   border: 0 solid;
   -webkit-tap-highlight-color: transparent;
   background-color: $bgcolor;
   background-image: none;
   color: $textcolor;
   cursor: pointer;
+  position: relative;
   font-size: 100%;
   line-height: 1.5;
   padding: 0;
-  -webkit-animation: pulse 2s infinite;
-  animation: pulse 2s infinite;
   border: 1px solid;
   border-radius: 999px;
   box-shadow: 0 0 0 2em transparent;
@@ -70,10 +71,12 @@ $large: 1rem;
   display: block;
   overflow: hidden;
   padding: 1.2rem 3rem;
-  position: relative;
+  -webkit-animation: FRNZ_anim_pulse_webkit 2s infinite;
+  animation: FRNZ_anim_pulse 2s infinite;
 }
 
-.frnz_ui_button_arrow_slide {
+//arrow slide
+.frnz_ui_button_ArrowSlide {
   -webkit-tap-highlight-color: transparent;
   background-color: $bgcolor;
   background-image: none;
@@ -92,9 +95,9 @@ $large: 1rem;
   &:before {
     border: 0 solid;
     box-sizing: border-box;
-    -webkit-animation: move-out 0.3s ease;
-    animation: move-out 0.3s ease;
     background: $textcolor;
+    -webkit-animation: 0.3s ease;
+    animation: FRNZ_anim_moveOut_webkit 0.3s ease;
     -webkit-clip-path: polygon(
       0 0,
       calc(100% - var(--tilt)) 0,
@@ -132,17 +135,18 @@ $large: 1rem;
   }
   &:hover {
     .frnz_ui_button_text_innerlabel {
-      -webkit-animation: move-right-alternate 0.3s ease forwards;
-      animation: move-right-alternate 0.3s ease forwards;
+      -webkit-animation: FRNZ_anim_moveRightAlternate_webkit 0.3s ease forwards;
+      animation: FRNZ_anim_moveRightAlternate 0.3s ease forwards;
     }
     &:before {
-      -webkit-animation: move-in 0.3s ease forwards;
-      animation: move-in 0.3s ease forwards;
+      -webkit-animation: FRNZ_anim_moveIn_webkit 0.3s ease forwards;
+      animation: FRNZ_anim_moveIn 0.3s ease forwards;
     }
   }
 }
 
-.frnz_ui_button_rainbowfill {
+//rainbow fill
+.frnz_ui_button_Rainbowfill {
   $color_1: #ff0000;
   $color_2: #0000ff;
 
@@ -175,7 +179,8 @@ $large: 1rem;
   }
 }
 
-.frnz_ui_button_spotlight {
+//spotlight button
+.frnz_ui_button_Spotlight {
   position: relative;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 10px 20px $shadow;
@@ -200,7 +205,7 @@ $large: 1rem;
       transform: translate(4px);
     }
     &::before {
-      animation: shine 1.5s ease-out infinite;
+      animation: FRNZ_anim_shine 1.5s ease-out infinite;
     }
   }
   &::before {
@@ -220,88 +225,8 @@ $large: 1rem;
   }
 }
 
-.frnz_ui_button_celebrationn {
-  position: relative;
-  padding: 10px 22px;
-  border-radius: 6px;
-  border: none;
-  color: $textcolor;
-  cursor: pointer;
-  background-color: $bgcolor;
-  transition: all 0.2s ease;
-  &:active {
-    transform: scale(0.96);
-  }
-  &:before {
-    position: absolute;
-    content: "";
-    width: 150%;
-    left: 50%;
-    height: 100%;
-    transform: translateX(-50%);
-    z-index: -1000;
-    background-repeat: no-repeat;
-  }
-  &:after {
-    position: absolute;
-    content: "";
-    width: 150%;
-    left: 50%;
-    height: 100%;
-    transform: translateX(-50%);
-    z-index: -1000;
-    background-repeat: no-repeat;
-  }
-  &:hover {
-    &:before {
-      top: -70%;
-      background-image: radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(
-          circle,
-          transparent 20%,
-          $textcolor 20%,
-          transparent 30%
-        ),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(
-          circle,
-          transparent 10%,
-          $textcolor 15%,
-          transparent 20%
-        ),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%);
-      background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
-        15% 15%, 10% 10%, 18% 18%;
-      background-position: 50% 120%;
-      animation: greentopBubbles 0.6s ease;
-    }
-    &::after {
-      bottom: -70%;
-      background-image: radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(
-          circle,
-          transparent 10%,
-          $textcolor 15%,
-          transparent 20%
-        ),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%),
-        radial-gradient(circle, $textcolor 20%, transparent 20%);
-      background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%,
-        18% 18%;
-      background-position: 50% 0%;
-      animation: greenbottomBubbles 0.6s ease;
-    }
-  }
-}
-
-.frnz_ui_button_celebration {
+//celebration button
+.frnz_ui_button_Celebration {
   position: relative;
   padding: 12px 24px;
   border-radius: 8px;
@@ -348,7 +273,7 @@ $large: 1rem;
       background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
         15% 15%, 10% 10%, 18% 18%;
       background-position: 50% 120%;
-      animation: orangeTopBubbles 0.6s ease;
+      animation: FRNZ_anim_colorfulTopBubbles 0.6s ease;
     }
     &::after {
       bottom: -70%;
@@ -362,12 +287,12 @@ $large: 1rem;
       background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%,
         18% 18%;
       background-position: 50% 0%;
-      animation: orangeBottomBubbles 0.6s ease;
+      animation: FRNZ_anim_colorfulBottomBubbles 0.6s ease;
     }
   }
 }
 
-.frnz_ui_button_backtotop {
+.frnz_ui_button_Backtotop {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -415,7 +340,7 @@ $large: 1rem;
   }
 }
 
-.frnz_ui_button_starlight {
+.frnz_ui_button_Starlight {
   $colorfill: nth(
     $list: $togglecp,
     $n: 2,
@@ -557,21 +482,9 @@ $large: 1rem;
   }
 }
 
-.frnz_ui_button_rainbow_border {
+.frnz_ui_button_RainbowBorder {
   $color_1: #fff;
   $color_2: #000;
-
-  @keyframes glowing {
-    0% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 400% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
-  }
 
   width: 220px;
   height: 50px;
@@ -605,7 +518,7 @@ $large: 1rem;
     filter: blur(5px);
     width: calc(100% + 4px);
     height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
+    animation: FRNZ_anim_glowing 20s linear infinite;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     border-radius: 10px;
@@ -640,8 +553,7 @@ $large: 1rem;
 }
 
 //all the animations
-
-@keyframes animateNavLikeButton {
+@keyframes FRNZ_anim_navButton {
   0% {
     background-color: nth($list: $togglecp, $n: 2);
     border-radius: 0;
@@ -652,18 +564,18 @@ $large: 1rem;
   }
 }
 
-@-webkit-keyframes pulse {
+@-webkit-keyframes FRNZ_anim_pulse_webkit {
   0% {
     box-shadow: 0 0 0 0 $textcolor;
   }
 }
-@keyframes pulse {
+@keyframes FRNZ_anim_pulse {
   0% {
     box-shadow: 0 0 0 0 $textcolor;
   }
 }
 
-@-webkit-keyframes move-right-alternate {
+@-webkit-keyframes FRNZ_anim_moveRightAlternate_webkit {
   0% {
     transform: translateX(0);
   }
@@ -677,7 +589,7 @@ $large: 1rem;
     transform: translateX(0);
   }
 }
-@keyframes move-right-alternate {
+@keyframes FRNZ_anim_moveRightAlternate {
   0% {
     transform: translateX(0);
   }
@@ -691,7 +603,7 @@ $large: 1rem;
     transform: translateX(0);
   }
 }
-@-webkit-keyframes move-in {
+@-webkit-keyframes FRNZ_anim_moveIn_webkit {
   0% {
     transform: translateX(0);
   }
@@ -699,7 +611,7 @@ $large: 1rem;
     transform: translateX(100%);
   }
 }
-@keyframes move-in {
+@keyframes Frnz_anim_moveIn {
   0% {
     transform: translateX(0);
   }
@@ -707,7 +619,7 @@ $large: 1rem;
     transform: translateX(100%);
   }
 }
-@-webkit-keyframes move-out {
+@-webkit-keyframes FRNZ_anim_moveOut_webkit {
   0% {
     transform: translateX(100%);
   }
@@ -715,7 +627,7 @@ $large: 1rem;
     transform: translateX(200%);
   }
 }
-@keyframes move-out {
+@keyframes FRNZ_anim_moveOut {
   0% {
     transform: translateX(100%);
   }
@@ -724,7 +636,7 @@ $large: 1rem;
   }
 }
 
-@keyframes shine {
+@keyframes FRNZ_anim_shine {
   0% {
     left: -100px;
   }
@@ -736,7 +648,7 @@ $large: 1rem;
   }
 }
 
-@keyframes greentopBubbles {
+@keyframes FRNZ_anim_colorfulTopBubbles {
   0% {
     background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
       40% 90%, 55% 90%, 70% 90%;
@@ -751,7 +663,7 @@ $large: 1rem;
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
-@keyframes greenbottomBubbles {
+@keyframes FRNZ_anim_colorfulBottomBubbles {
   0% {
     background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
       70% -10%, 70% 0%;
@@ -767,33 +679,14 @@ $large: 1rem;
   }
 }
 
-@keyframes orangeTopBubbles {
+@keyframes FRNZ_anim_glowing {
   0% {
-    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-      40% 90%, 55% 90%, 70% 90%;
+    background-position: 0 0;
   }
   50% {
-    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-      50% 50%, 65% 20%, 90% 30%;
+    background-position: 400% 0;
   }
   100% {
-    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-      50% 40%, 65% 10%, 90% 20%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
-}
-@keyframes orangeBottomBubbles {
-  0% {
-    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-      70% -10%, 70% 0%;
-  }
-  50% {
-    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-      105% 0%;
-  }
-  100% {
-    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-      110% 10%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    background-position: 0 0;
   }
 }

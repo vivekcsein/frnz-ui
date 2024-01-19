@@ -1,10 +1,10 @@
 // all the types in components/ui folder will be defined here
 // input props
-import { togglecp, variantButton } from "./constants.types"
+import { togglecp, FRNZ_variantButton, FRNZ_variantInput } from "./constants.types"
 
 export interface FRNZ_InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     id?: string;
-    variant?: string;
+    variant?: FRNZ_variantInput;
     name: string;
     type?: string;
     placeholder?: string;
@@ -16,7 +16,7 @@ export interface FRNZ_InputProps extends React.DetailedHTMLProps<React.InputHTML
 //button props
 export interface FRNZ_ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     id?: string;
-    variant?: variantButton;
+    variant?: FRNZ_variantButton;
     label: string;
     fx?: React.CSSProperties;
     fxc?: togglecp;

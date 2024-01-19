@@ -10,32 +10,45 @@ export interface togglecp {
 }
 
 export type CustomVariant = string & { __type: 'CustomVariant' };
-export type FRNZ_Backtotop = 'Backtotop';
-export type FRNZ_BgcolorIN = 'BgcolorIN';
-export type FRNZ_BgcolorOut = 'BgcolorOut';
-export type FRNZ_Celebration = 'Celebration';
-export type FRNZ_ArrowSlide = 'ArrowSlide';
-export type FRNZ_RightSlide = 'RightSlide';
-export type FRNZ_I_wantAttention = 'I_wantAttention';
-export type FRNZ_RainbowBorder = 'RainbowBorder';
-export type FRNZ_Rainbowfill = 'Rainbowfill';
-export type FRNZ_Spotlight = 'Spotlight';
-export type FRNZ_Starlight = 'Starlight';
-export type FRNZ_GSAP = 'gsap';
-export type FRNZ_Navbar = 'navbar';
+
+//type button
+export type FRNZ_Button_Backtotop = 'Backtotop';
+export type FRNZ_Button_BgcolorIN = 'BgcolorIN';
+export type FRNZ_Button_BgcolorOut = 'BgcolorOut';
+export type FRNZ_Button_Celebration = 'Celebration';
+export type FRNZ_Button_ArrowSlide = 'ArrowSlide';
+export type FRNZ_Button_I_wantAttention = 'I_wantAttention';
+export type FRNZ_Button_RainbowBorder = 'RainbowBorder';
+export type FRNZ_Button_Rainbowfill = 'Rainbowfill';
+export type FRNZ_Button_Spotlight = 'Spotlight';
+export type FRNZ_Button_Starlight = 'Starlight';
+export type FRNZ_Button_GSAP = 'gsap';
+export type FRNZ_Button_Navbar = 'navbar';
+
+//type input
+
+export type FRNZ_Input_password = "Password";
+export type FRNZ_Input_username = "Username";
+export type FRNZ_Input_gsap = "gsap";
 
 
-export type variantButton =
+
+export type FRNZ_variantButton =
     // | FRNZ_GSAP
-    | FRNZ_Backtotop
-    | FRNZ_BgcolorIN
-    | FRNZ_BgcolorOut
-    | FRNZ_Celebration
-    | FRNZ_I_wantAttention
-    | FRNZ_ArrowSlide
-    | FRNZ_RightSlide
-    | FRNZ_Spotlight
-    | FRNZ_Starlight
-    | FRNZ_RainbowBorder
-    | FRNZ_Rainbowfill
-    | FRNZ_Navbar
+    | FRNZ_Button_Backtotop
+    | FRNZ_Button_BgcolorIN
+    | FRNZ_Button_BgcolorOut
+    | FRNZ_Button_Celebration
+    | FRNZ_Button_ArrowSlide
+    | FRNZ_Button_I_wantAttention
+    | FRNZ_Button_RainbowBorder
+    | FRNZ_Button_Rainbowfill
+    | FRNZ_Button_Spotlight
+    | FRNZ_Button_Starlight
+    | FRNZ_Button_Navbar
+
+
+export type FRNZ_variantInput =
+    | FRNZ_Input_password
+    | FRNZ_Input_username
+    | FRNZ_Input_gsap

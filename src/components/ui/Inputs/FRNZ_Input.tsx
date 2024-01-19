@@ -22,7 +22,7 @@ const FRNZ_Input: React.FunctionComponent<FRNZ_InputProps> = ({
     case "gsap":
       return (
         <input
-          className="frnz_input_gsap"
+          className="frnz_ui_input_gsap"
           type="text"
           placeholder="gsap input"
           style={style}

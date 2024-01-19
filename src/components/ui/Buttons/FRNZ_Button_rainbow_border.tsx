@@ -8,8 +8,8 @@ const FRNZ_Button_rainbow_border: React.FunctionComponent<FRNZ_ButtonProps> = ({
 }) => {
   return (
     <button
-      className="frnz_ui_button_rainbow_border"
-      // style={fx ? fx : {}}
+      className="frnz_ui_button_RainbowBorder"
+      style={fx ? fx : {}}
       {...props}
     >
       {label}

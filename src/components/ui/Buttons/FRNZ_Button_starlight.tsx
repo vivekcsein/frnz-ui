@@ -96,7 +96,7 @@ const FRNZ_Button_starlight: React.FunctionComponent<FRNZ_ButtonProps> = ({
 
   return (
     <button
-      className="frnz_ui_button_starlight"
+      className="frnz_ui_button_Starlight"
       style={vfx}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

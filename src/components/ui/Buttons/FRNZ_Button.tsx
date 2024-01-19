@@ -24,7 +24,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         <FRNZ_Button_default
           key={frnz_key}
           label={label}
-          fxclass="frnz_ui_button_colorfill"
+          fxclass="frnz_ui_button_BgcolorIN"
           children={children}
           {...props}
         />
@@ -34,7 +34,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         <FRNZ_Button_default
           key={frnz_key}
           label={label}
-          fxclass="frnz_ui_button_colorfill2"
+          fxclass="frnz_ui_button_BgcolorOut"
           children={children}
           {...props}
         />
@@ -45,18 +45,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         <FRNZ_Button_default
           key={frnz_key}
           label={label}
-          fxclass="frnz_ui_button_attention"
-          children={children}
-          {...props}
-        />
-      );
-
-    case "RightSlide":
-      return (
-        <FRNZ_Button_default
-          key={frnz_key}
-          label={label}
-          fxclass="frnz_ui_button_slideright"
+          fxclass="frnz_ui_button_I_wantAttention"
           children={children}
           {...props}
         />
@@ -67,7 +56,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         <FRNZ_Button_default
           key={frnz_key}
           label={label}
-          fxclass="frnz_ui_button_celebration"
+          fxclass="frnz_ui_button_Celebration"
           children={children}
           {...props}
         />
@@ -78,7 +67,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         <FRNZ_Button_text
           key={frnz_key}
           label={label}
-          fxclass="frnz_ui_button_arrow_slide"
+          fxclass="frnz_ui_button_ArrowSlide"
           children={children}
           {...props}
         />
@@ -89,7 +78,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         <FRNZ_Button_text
           key={frnz_key}
           label={label}
-          fxclass="frnz_ui_button_rainbowfill"
+          fxclass="frnz_ui_button_Rainbowfill"
           children={children}
           {...props}
         />
