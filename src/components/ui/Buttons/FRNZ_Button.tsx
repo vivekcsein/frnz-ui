@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../styles/ui/Buttons/FRNZ_Button.scss";
 import { FRNZ_ButtonProps } from "../../../types/ui.types";
 import FRNZ_Button_default from "./FRNZ_Button_default";
 // import FRNZ_Button_gsap from "./FRNZ_Button_gsap";
@@ -20,7 +19,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
   const variantUI = variant ? variant : "";
 
   switch (variantUI) {
-    case "colorfill":
+    case "BgcolorIN":
       return (
         <FRNZ_Button_default
           key={frnz_key}
@@ -30,7 +29,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
           {...props}
         />
       );
-    case "colorfill2":
+    case "BgcolorOut":
       return (
         <FRNZ_Button_default
           key={frnz_key}
@@ -41,7 +40,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "attention":
+    case "I_wantAttention":
       return (
         <FRNZ_Button_default
           key={frnz_key}
@@ -52,7 +51,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "rightSlide":
+    case "RightSlide":
       return (
         <FRNZ_Button_default
           key={frnz_key}
@@ -63,7 +62,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "celebration":
+    case "Celebration":
       return (
         <FRNZ_Button_default
           key={frnz_key}
@@ -74,7 +73,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "arrowSlide":
+    case "ArrowSlide":
       return (
         <FRNZ_Button_text
           key={frnz_key}
@@ -85,7 +84,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "rainbowfill":
+    case "Rainbowfill":
       return (
         <FRNZ_Button_text
           key={frnz_key}
@@ -96,7 +95,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "spotlight":
+    case "Spotlight":
       return (
         <FRNZ_Button_icon
           key={frnz_key}
@@ -106,7 +105,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "starlight":
+    case "Starlight":
       return (
         <FRNZ_Button_starlight
           key={frnz_key}
@@ -116,7 +115,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
         />
       );
 
-    case "rainbowBorder":
+    case "RainbowBorder":
       return (
         <FRNZ_Button_rainbow_border
           key={frnz_key}
@@ -125,7 +124,7 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
           {...props}
         />
       );
-    case "backtotop":
+    case "Backtotop":
       return (
         <FRNZ_Button_backtotop
           key={frnz_key}
@@ -146,16 +145,16 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
     //     />
     //   );
 
-    // case "navbar":
-    //   return (
-    //     <FRNZ_Button_default
-    //       key={frnz_key}
-    //       label={label}
-    //       fxclass="frnz_ui_button_navbar"
-    //       children={children}
-    //       {...props}
-    //     />
-    //   );
+    case "navbar":
+      return (
+        <FRNZ_Button_default
+          key={frnz_key}
+          label={label}
+          fxclass="frnz_ui_button_navbar"
+          children={children}
+          {...props}
+        />
+      );
 
     default:
       return (

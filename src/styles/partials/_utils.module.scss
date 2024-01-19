@@ -1,348 +1,72 @@
 @use "./variables.module" as *;
 @use "./breakpoint.module" as *;
+@use "./anim.module" as *;
+@use "./mixins.module" as *;
 
-@mixin toggle_hide($show) {
-  display: $show;
+.button_navbar {
+  @include btn_navbar;
+  @include btn_navbar_animate;
 }
 
-@mixin flex_center {
-  display: flex;
+.button_navbar_special {
+  @include btn_navbar(
+    nth($list: $togglecp, $n: 2),
+    nth($list: $togglecp, $n: 1)
+  );
+  @include btn_navbar_animate_special($danger, $textLight);
+}
+
+.button_submit_variant1 {
+  @include btn_navbar(
+    nth($list: $togglecp, $n: 2),
+    nth($list: $togglecp, $n: 1)
+  );
+  @include btn_navbar_animate_special($secondary, $textLight);
+}
+
+.button_submit_variant2 {
+  @include btn_navbar(
+    nth($list: $togglecp, $n: 1),
+    nth($list: $togglecp, $n: 2)
+  );
+  @include btn_navbar_animate_special($secondary, $textLight);
+}
+
+.sticky {
+  /* Safari */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.SubscribeNow {
+  @include subscribeNow;
+}
+
+.LoadingScreen {
+  @include Loading_Screen;
+}
+
+.errorShow {
+  @include errorShow;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  margin: auto 1rem;
+  padding: 1.5rem;
+  border-radius: 100%;
+  color: nth($list: $togglecp, $n: 4);
+  align-items: center;
   justify-content: center;
-  align-items: center;
-}
-
-@mixin flex_left {
   display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-@mixin toggleColor {
-  color: nth($list: $togglecp, $n: 1);
-  background-color: nth($list: $togglecp, $n: 2);
-}
-
-@mixin toggle_phone_show {
-  @include res_desktop {
-    @include toggle_hide(none);
-  }
-  @include res_phone {
-    @include toggle_hide("block");
-  }
-}
-
-@mixin toggle_desktop_show {
-  @include res_desktop {
-    @include toggle_hide("block");
-  }
-  @include res_phone {
-    @include toggle_hide(none);
-  }
-}
-
-@mixin fullscreen_res {
-  min-width: 100%;
-  min-height: 88vh;
-  // @include res_phone {
-  //   min-height: 88vh;
-  //   height: auto;
-  // }
-}
-
-@mixin btn_navbar(
-  $bgcolor: nth($list: $togglecp, $n: 1),
-  $textcolor: nth($list: $togglecp, $n: 2)
-) {
-  cursor: pointer;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  color: $textcolor;
-  background-color: $bgcolor;
-  > div,
-  span {
-    color: $textcolor;
-  }
-}
-
-@mixin btn_navbar_animate(
-  $bgcolor: nth($list: $togglecp, $n: 1),
-  $textcolor: nth($list: $togglecp, $n: 2)
-) {
+  border: 2px solid nth($list: $togglecp, $n: 4);
+  transition: all ease 0.1s;
   &:hover {
-    background-color: $textcolor;
-    border-radius: 2rem;
-    scale: 1.1;
-    color: $bgcolor;
-    > div,
-    span {
-      color: $bgcolor;
-    }
-    @include Anim_animateNavLikeButton;
-  }
-  &:active {
-    @include Active_animateNavLikeButton;
-  }
-  // &:after {
-  //   @include Active_animateNavLikeButton;
-  // }
-  // &:visited {
-  //   @include Active_animateNavLikeButton;
-  // }
-}
-
-@mixin btn_navbar_animate_special(
-  $bgcolor: nth($list: $togglecp, $n: 2),
-  $textcolor: nth($list: $togglecp, $n: 1)
-) {
-  &:hover {
-    background-color: $bgcolor;
-    border-radius: 2rem;
-    scale: 1.1;
-    color: $textcolor;
-    > div,
-    span {
-      color: $textcolor;
-    }
-    @include Anim_animateNavLikeButton_speical;
-  }
-  &:active {
-    @include Active_animateNavLikeButton;
-  }
-}
-
-@mixin Anim_animateNavLikeButton {
-  animation: animateNavLikeButton 0.05s linear;
-}
-@mixin Anim_animateNavLikeButton_speical {
-  animation: animateNavLikeButton_special 0.05s linear;
-}
-
-@mixin Active_animateNavLikeButton {
-  box-shadow: $boxShadow;
-}
-
-@mixin btn_info {
-  cursor: pointer;
-  background-color: white;
-  padding: 0rem 0.5rem;
-  color: #000000;
-}
-
-@keyframes animateNavLikeButton {
-  0% {
     background-color: nth($list: $togglecp, $n: 2);
-    border-radius: 0;
-  }
-  100% {
-    background-color: nth($list: $togglecp, $n: 1);
-    border-radius: 2rem;
   }
 }
 
-@keyframes animateNavLikeButton_special {
-  0% {
-    background-color: nth($list: $togglecp, $n: 1);
-    border-radius: 0;
-  }
-  100% {
-    background-color: red;
-    border-radius: 2rem;
-  }
-}
-
-@keyframes gayab {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@mixin Loading_Screen {
-  position: absolute;
-  left: 0rem;
-  top: 0rem;
-  width: 100%;
-  height: 25%;
-  transform: translateY(150%);
-  display: grid;
-  place-items: center;
-}
-
-@mixin errorShow {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-  > div {
-    border: 2px solid black;
-    margin: auto;
-    width: 40%;
-    min-width: 400px;
-    height: 40%;
-    background-color: nth($list: $togglecp, $n: 1);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    @include res_phone {
-      width: 60%;
-      min-width: 250px;
-    }
-  }
-  h1 {
-    color: red;
-    text-align: center;
-    font-size: 3rem;
-    @include res_phone {
-      @include phone {
-        font-size: 2rem;
-      }
-    }
-  }
-}
-
-@mixin subscribeNow {
-  // background-color: aqua;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  display: flex;
-  // flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .SubscribeNow_btn {
-    width: 90%;
-    position: relative;
-
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-around;
-    background-color: nth($list: $togglecp, $n: 2);
-    color: nth($list: $togglecp, $n: 7);
-    font-size: large;
-    > span {
-      position: absolute;
-      right: 0;
-      font-size: xx-large;
-      cursor: pointer;
-    }
-    > input {
-      width: 100%;
-      padding: 0.25rem 0;
-      cursor: pointer;
-    }
-
-    &:hover {
-      background-color: nth($list: $togglecp, $n: 5);
-      color: nth($list: $togglecp, $n: 7);
-    }
-  }
-}
-
-@mixin passIcon {
-  font-size: 1.3em !important;
-  position: absolute;
-  top: 0.75rem;
-  right: 1rem;
-  color: nth($list: $togglecp, $n: 2);
-  cursor: pointer;
-}
-
-@mixin textInput {
-  border: none;
-  outline: none;
-  font-size: $font_size_default;
-  box-sizing: border-box;
-  padding: 0.5rem 3rem;
-  background-color: white;
-  color: nth($list: $togglecp, $n: 2);
-}
-
-@mixin swiperSlider {
-  width: 100%;
-  height: 650px;
-  overflow: hidden;
-  @include res_desktop {
-    @include laptop {
-      overflow-y: hidden;
-      height: 100%;
-    }
-  }
-  @include res_phone {
-    width: 150%;
-    transform: translateX(-17%);
-    height: auto;
-  }
-}
-
-@mixin chatbox(
-  $borderType: 0rem 1rem 1rem 1rem,
-  $bgcolor: nth($list: $togglecp, $n: 2)
-) {
-  min-width: 390px;
-  width: 80%;
-  height: 56px;
-  background-color: $bgcolor;
-  color: nth($list: $togglecp, $n: 6);
-  border-radius: $borderType;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: baseline;
-}
-
-// @mixin inputBox {
-//   // padding: 0.7rem;
-//   border: none;
-//   box-shadow: 2px 5px $box_shadow;
-//   box-sizing: border-box;
-//   background-color: nth($list: $togglebg, $n: 2);
-// }
-
-// @mixin inputText {
-//   color: nth($list: $togglecp, $n: 2);
-//   font-weight: bolder;
-//   font-family: nth($list: $font_family, $n: 3);
-//   font-size: calc($font_size_default * 1);
-// }
-// @mixin placeholder {
-//   @include inputText;
-//   font-family: nth($list: $font_family, $n: 4);
-//   color: nth($list: $togglecp, $n: 3);
-// }
-
-// input::placeholder {
-//   @include placeholder;
-// }
-// input[type="text"] {
-//   @include inputText;
-//   font-family: nth($list: $font_family, $n: 4);
-//   color: nth($list: $togglecp, $n: 3);
-// }
-// input[type="password"] {
-//   @include inputText;
-// }
-
-@keyframes animateNavLikeButton {
-  0% {
-    background-color: nth($togglecp, 3);
-    border-radius: 0;
-  }
-  100% {
-    background-color: nth($togglecp, 4);
-    border-radius: 2rem;
-  }
-}
-
-@keyframes gayab {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+.swiperSlider {
+  @include swiperSlider;
 }

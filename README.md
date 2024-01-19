@@ -30,7 +30,7 @@
 
 <p>import css from frnz-ui
     
-    import "frnz-ui/dist/styles/frnz_styles.css";
+    import "frnz-ui/dist/styles/style.ui.css";
 
 </p>
 
@@ -47,6 +47,11 @@
         backgroundColor: "red",
         color: "green",
         padding: "1rem .5rem",
+    }}
+    fxc{{
+        primary:"red",
+        bgc:"black",
+        secondary:"green"
     }}
     />
 

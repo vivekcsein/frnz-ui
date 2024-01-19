@@ -1,0 +1,21 @@
+@use "./variables.module" as *;
+
+@keyframes animateNavLikeButton {
+  0% {
+    background-color: nth($togglecp, 3);
+    border-radius: 0;
+  }
+  100% {
+    background-color: nth($togglecp, 4);
+    border-radius: 2rem;
+  }
+}
+
+@keyframes gayab {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

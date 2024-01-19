@@ -31,11 +31,6 @@ export default [
             }),
             commonjs(),
             typescript({ tsconfig: './tsconfig.json' }),
-            scss({
-                // insert: true,
-                // prependData: `@use 'src/styles/Vars.scss' as *;`,
-                output: 'dist/styles/frnz_styles.css'
-            })
         ],
         external: ['react', 'react-dom'],
     },
@@ -45,4 +40,12 @@ export default [
         plugins: [dts()],
         external: [/\.(css|less|scss)$/]
     },
+    {
+        input: "src/components/ui/styles.ui.ts",
+        plugins: [
+            scss({
+                output: 'dist/styles/styles.ui.css'
+            })
+        ]
+    }
 ];

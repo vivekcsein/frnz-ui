@@ -1,5 +1,5 @@
 @use "./variables.module" as *;
-@use "./utils.module" as *;
+@use "./mixins.module" as *;
 
 .flex_center {
   @include flex_center;
@@ -16,33 +16,20 @@
   display: none;
 }
 
-.button_navbar {
-  @include btn_navbar;
-  @include btn_navbar_animate;
+.cursorPointer {
+  cursor: pointer;
 }
 
-.button_navbar_special {
-  @include btn_navbar(
-    nth($list: $togglecp, $n: 2),
-    nth($list: $togglecp, $n: 1)
-  );
-  @include btn_navbar_animate_special($danger, $textLight);
+.boxShadow {
+  box-shadow: $boxShadow;
 }
 
-.button_submit_variant1 {
-  @include btn_navbar(
-    nth($list: $togglecp, $n: 2),
-    nth($list: $togglecp, $n: 1)
-  );
-  @include btn_navbar_animate_special($secondary, $textLight);
-}
-
-.button_submit_variant2 {
-  @include btn_navbar(
-    nth($list: $togglecp, $n: 1),
-    nth($list: $togglecp, $n: 2)
-  );
-  @include btn_navbar_animate_special($secondary, $textLight);
+.mdIcon {
+  font-size: 1.3em !important;
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  color: nth($list: $togglecp, $n: 2);
 }
 
 .toggle_phone_show {
@@ -57,41 +44,6 @@
   @include fullscreen_res;
 }
 
-.sticky {
-  /* Safari */
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-
-.SubscribeNow {
-  @include subscribeNow;
-}
-
-.Loading_Screen {
-  @include Loading_Screen;
-}
-
-.errorShow {
-  @include errorShow;
-}
-
-.cursorPointer {
-  cursor: pointer;
-}
-
-.box_shadow {
-  box-shadow: $boxShadow;
-}
-
-.md-icon {
-  font-size: 1.3em !important;
-  position: absolute;
-  top: 0.75rem;
-  left: 1rem;
-  color: nth($list: $togglecp, $n: 2);
-}
-
 input[type="text"],
 input[type="password"],
 textarea {
@@ -99,24 +51,4 @@ textarea {
 }
 input::placeholder {
   color: nth($list: $togglecp, $n: 2);
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  margin: auto 1rem;
-  padding: 1.5rem;
-  border-radius: 100%;
-  color: nth($list: $togglecp, $n: 4);
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border: 2px solid nth($list: $togglecp, $n: 4);
-  transition: all ease 0.1s;
-  &:hover {
-    background-color: nth($list: $togglecp, $n: 2);
-  }
-}
-
-.swiperslider {
-  @include swiperSlider;
 }

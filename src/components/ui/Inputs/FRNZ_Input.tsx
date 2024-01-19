@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../styles/ui/Input/FRNZ_Input.scss";
 import FRNZ_Input_default from "./FRNZ_Input_default";
 import { FRNZ_InputProps } from "../../../types/ui.types";
 

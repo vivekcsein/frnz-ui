@@ -1,5 +1,10 @@
-//farward utils
-@forward "./partials/utils.module";
-
+//variables
+@forward "./partials/variables.module";
+// breakpoints
+@forward "./partials/breakpoint.module";
 //base classses
 @forward "./partials/base.module";
+
+@forward "./partials/anim.module";
+
+@forward "./partials/mixins.module";
