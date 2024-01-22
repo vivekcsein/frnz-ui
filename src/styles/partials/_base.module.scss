@@ -43,12 +43,3 @@
 .fullscreen {
   @include fullscreen_res;
 }
-
-input[type="text"],
-input[type="password"],
-textarea {
-  @include textInput;
-}
-input::placeholder {
-  color: nth($list: $togglecp, $n: 2);
-}

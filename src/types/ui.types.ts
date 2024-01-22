@@ -7,10 +7,10 @@ export interface FRNZ_InputProps extends React.DetailedHTMLProps<React.InputHTML
     variant?: FRNZ_variantInput;
     name: string;
     type?: string;
+    label?: string;
     placeholder?: string;
     fx?: React.CSSProperties;
-    fxclass?: string;
-    children?: React.ReactNode;
+    ref?: React.RefObject<HTMLInputElement>
 }
 
 //button props
@@ -27,4 +27,8 @@ export interface FRNZ_ButtonProps_default extends FRNZ_ButtonProps {
 }
 export interface FRNZ_ButtonProps_gsap extends FRNZ_ButtonProps {
     animType: string;
+}
+export interface FRNZ_InputProps_default extends FRNZ_InputProps {
+    fxclass?: string;
+    message?: string;
 }

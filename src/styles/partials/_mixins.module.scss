@@ -259,7 +259,7 @@
   font-size: $font_size_default;
   box-sizing: border-box;
   padding: 0.5rem 1rem;
-  background-color: white;
+  background-color: nth($list: $togglebg, $n: 3);
   color: nth($list: $togglecp, $n: 2);
 }
 

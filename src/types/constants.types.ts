@@ -27,8 +27,11 @@ export type FRNZ_Button_Navbar = 'navbar';
 
 //type input
 
-export type FRNZ_Input_password = "Password";
-export type FRNZ_Input_username = "Username";
+export type FRNZ_Input_Password = "Password";
+export type FRNZ_Input_Username = "Username";
+export type FRNZ_Input_Phone = "Phone";
+export type FRNZ_Input_Modern = "Modern";
+export type FRNZ_Input_Search = "Search";
 export type FRNZ_Input_gsap = "gsap";
 
 
@@ -49,6 +52,9 @@ export type FRNZ_variantButton =
 
 
 export type FRNZ_variantInput =
-    | FRNZ_Input_password
-    | FRNZ_Input_username
-    | FRNZ_Input_gsap
+    | FRNZ_Input_Password
+    | FRNZ_Input_Username
+    | FRNZ_Input_Phone
+    | FRNZ_Input_Modern
+    | FRNZ_Input_Search
+// | FRNZ_Input_gsap
