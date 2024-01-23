@@ -1,3 +1,6 @@
+// created by vivekcse for frnz-ui for buttons styling
+// https://github.com/vivekcsein/frnz-ui
+
 $textcolor: nth(
   $list: $togglecp,
   $n: 2,
@@ -20,44 +23,47 @@ $placeholderColor: nth(
   --frnz_placeholder_color: white;
 }
 
-input[type="text"],
-input[type="password"],
-textarea {
+@mixin frnz_ui_input {
+  width: fit-content;
+  min-width: 300px;
   border: none;
   outline: none;
+  padding: 5px 10px;
   box-sizing: border-box;
   font-size: $font_size_default;
-  padding: 0.5rem 1rem;
-  background-color: $bgcolor;
-  color: var(--frnz_placeholder_color);
-}
-input::placeholder {
-  color: var(--frnz_placeholder_color);
+  background-color: inherit;
+  color: inherit;
 }
 
-.frnz_ui_input_setplaceholder {
+@mixin frnz_input_basics {
+  input[type="text"],
+  input[type="password"],
+  textarea {
+    @include frnz_ui_input;
+  }
   input::placeholder {
     color: var(--frnz_placeholder_color);
   }
 }
 
 .frnz_ui_input_default {
-  width: fit-content;
-  min-width: 300px;
-  padding: 5px 10px;
-  border: none;
-  outline: none;
-  color: $textcolor;
+  @include frnz_ui_input;
+  color: var(--frnz_placeholder_color);
   background-color: $bgcolor;
+  input::placeholder {
+    color: inherit;
+  }
 }
 
 .frnz_ui_input_var_password {
+  @include frnz_input_basics;
   width: fit-content;
-  padding: 0 1rem 0 0;
+  border: none;
+  outline: none;
+  min-width: 250px;
+  padding: 0 1.5rem 0 0;
+  color: var(--frnz_placeholder_color);
   background-color: $bgcolor;
-  input {
-    background-color: inherit;
-  }
 }
 
 .frnz_input_gsap {
@@ -65,74 +71,12 @@ input::placeholder {
   // background-color: $bgcolor;
 }
 
-//input1
-
-.container {
+.frnz_ui_input_var_modern {
+  @extend .frnz_ui_input_var_password;
   position: relative;
-  --size-button: 40px;
-  color: $textcolor;
-  .icon {
-    position: absolute;
-    width: var(--size-button);
-    height: var(--size-button);
-    top: 0;
-    left: 0;
-    padding: 8px;
-    pointer-events: none;
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-.input {
-  padding-left: var(--size-button);
-  height: var(--size-button);
-  font-size: 15px;
-  border: none;
-  color: $textcolor;
-  outline: none;
-  width: var(--size-button);
-  transition: all ease 0.3s;
-  background-color: $bgcolor;
-  box-shadow: 1.5px 1.5px 3px $shadowcolor,
-    -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px $shadowcolor,
-    inset 0px -0px 0px #5f5e5e;
-  border-radius: 50px;
-  cursor: pointer;
-  &:focus {
-    width: 200px;
-    cursor: text;
-    box-shadow: 0px 0px 0px $shadowcolor, 0px 0px 0px rgb(95 94 94 / 25%),
-      inset 1.5px 1.5px 3px $shadowcolor, inset -1.5px -1.5px 3px #5f5e5e;
-    + {
-      .icon {
-        pointer-events: all;
-        cursor: pointer;
-      }
-    }
-  }
-  &:not(:invalid) {
-    width: 200px;
-    cursor: text;
-    box-shadow: 0px 0px 0px $shadowcolor, 0px 0px 0px rgb(95 94 94 / 25%),
-      inset 1.5px 1.5px 3px $shadowcolor, inset -1.5px -1.5px 3px #5f5e5e;
-    + {
-      .icon {
-        pointer-events: all;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-.textInputWrapper {
-  position: relative;
-  width: 180px;
-  margin: 12px 5px;
   &:before {
     transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.42);
     content: "";
     left: 0;
     right: 0;
@@ -142,7 +86,7 @@ input::placeholder {
     z-index: 4;
     width: 100%;
     transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.42);
   }
   &:after {
     content: "";
@@ -157,27 +101,21 @@ input::placeholder {
     transform: scaleX(0);
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
     will-change: transform;
-    border-bottom: 2px solid nth($list: $togglecp, $n: 4);
-    border-bottom-color: nth($list: $togglecp, $n: 4);
+    border-bottom: 2px solid var(--frnz_placeholder_color);
+    border-bottom-color: var(--frnz_placeholder_color);
   }
   &:focus-within {
     &:before {
-      border-bottom: 1px solid var(--accent-color);
-      border-bottom: 1px solid var(--accent-color);
+      border-bottom: 1px solid var(--frnz_placeholder_color);
+      border-bottom: 1px solid var(--frnz_placeholder_color);
       transform: scaleX(1);
     }
     &:after {
-      border-bottom: 2px solid var(--accent-color);
+      border-bottom: 2px solid var(--frnz_placeholder_color);
       transform: scaleX(1);
     }
-    .textInput {
-      background-color: $bgcolor;
-      &::placeholder {
-        opacity: 0;
-      }
-    }
   }
-  .textInput {
+  .frnz_ui_input_var_modern_input {
     border-radius: 5px 5px 0px 0px;
     box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
     max-height: 36px;
@@ -203,11 +141,66 @@ input::placeholder {
     }
   }
 }
-.textInput {
-  &::placeholder {
-    transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-    opacity: 1;
-    user-select: none;
-    color: $textcolor;
+
+.frnz_ui_input_var_serach {
+  position: relative;
+  --size-button: 40px;
+  color: var(--frnz_placeholder_color);
+  .frnz_ui_input_var_serach_icon {
+    position: absolute;
+    width: var(--size-button);
+    height: var(--size-button);
+    top: 0;
+    left: 0;
+    padding: 8px;
+    pointer-events: none;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .frnz_ui_input_var_serach_input {
+    --size-button: 40px;
+    padding-left: var(--size-button);
+    height: var(--size-button);
+    font-size: 15px;
+    border: none;
+    color: var(--frnz_placeholder_color);
+    outline: none;
+    width: var(--size-button);
+    transition: all ease 0.3s;
+    background-color: $bgcolor;
+    box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%),
+      inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+    border-radius: 50px;
+    cursor: pointer;
+    &:focus {
+      width: 200px;
+      cursor: text;
+      box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%),
+        inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+      + {
+        .icon {
+          pointer-events: all;
+          cursor: pointer;
+        }
+      }
+    }
+    &:not(:invalid) {
+      width: 200px;
+      cursor: text;
+      box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%),
+        inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+      + {
+        .icon {
+          pointer-events: all;
+          cursor: pointer;
+        }
+      }
+    }
+    input::placeholder {
+      color: var(--frnz_placeholder_color);
+    }
   }
 }

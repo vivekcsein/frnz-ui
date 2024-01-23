@@ -9,19 +9,18 @@ const FRNZ_Input_search: React.FunctionComponent<FRNZ_InputProps> = ({
   ...props
 }) => {
   return (
-    <div className="container">
+    <div className="frnz_ui_input_var_serach">
       <input
         type={type}
         name={name}
-        className="input"
-        required
+        className="frnz_ui_input_var_serach_input"
         placeholder={placeholder ? placeholder : "serach here..."}
         {...props}
       />
-      <div className="icon">
+      <div className="frnz_ui_input_var_serach_icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="ionicon"
+          // className="ionicon"
           viewBox="0 0 512 512"
         >
           <title>{label}</title>

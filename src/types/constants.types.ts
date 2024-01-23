@@ -34,8 +34,6 @@ export type FRNZ_Input_Modern = "Modern";
 export type FRNZ_Input_Search = "Search";
 export type FRNZ_Input_gsap = "gsap";
 
-
-
 export type FRNZ_variantButton =
     // | FRNZ_GSAP
     | FRNZ_Button_Backtotop
@@ -53,8 +51,8 @@ export type FRNZ_variantButton =
 
 export type FRNZ_variantInput =
     | FRNZ_Input_Password
-    | FRNZ_Input_Username
-    | FRNZ_Input_Phone
     | FRNZ_Input_Modern
     | FRNZ_Input_Search
+// | FRNZ_Input_Username
+// | FRNZ_Input_Phone
 // | FRNZ_Input_gsap

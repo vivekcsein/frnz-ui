@@ -7,12 +7,12 @@ const FRNZ_input_modern: React.FunctionComponent<FRNZ_InputProps> = ({
   ...props
 }) => {
   return (
-    <div className="textInputWrapper">
+    <div className="frnz_ui_input_var_modern">
       <input
         placeholder="Enter your Input"
         type={type}
         name={name}
-        className="textInput"
+        className="frnz_ui_input_var_modern_input"
         {...props}
       />
     </div>
