@@ -70,6 +70,9 @@ const FRNZ_svg_Rating = ({ svgData }: FRNZ_svg_RatingProps) => {
       width={svgData.svgsize}
       height={svgData.svgsize}
       fill="none"
+      style={{
+        cursor: "pointer",
+      }}
     >
       <path
         d={svgData.svgpath}
@@ -124,6 +127,7 @@ const FRNZ_svg_Popup = ({ svgData, ...props }: FRNZ_svg_PopupProps) => {
         }}
         style={{
           overflow: "visible",
+          cursor: "pointer",
         }}
       >
         <use

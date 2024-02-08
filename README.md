@@ -30,7 +30,7 @@
 
 <p>import css from frnz-ui
     
-    import "frnz-ui/dist/styles/style_ui.css";
+    import "frnz-ui/dist/styles/styles_ui.css";
 
 </p>
 
@@ -90,7 +90,7 @@
         variant="Rating"
         show={40}
         size={240}
-        strokeWidth={-5}
+        strokeWidth={5}
         fxc={{ primary: "red", secondary: "green" }}
     />
 
