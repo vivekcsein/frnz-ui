@@ -34,8 +34,6 @@ const FRNZ_svg: React.FunctionComponent<FRNZ_svgProps> = ({
     svgstroke:
       strokeWidth && strokeWidth <= 0 ? 0 : strokeWidth ? strokeWidth : 10,
   };
-  console.log(svgData.svgstroke);
-
   const svg_variant = variant ? variant : "Default";
   const frnz_key = id ? id : null;
 
