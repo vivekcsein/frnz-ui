@@ -26,13 +26,26 @@ export type FRNZ_Button_GSAP = 'gsap';
 export type FRNZ_Button_Navbar = 'navbar';
 
 //type input
-
 export type FRNZ_Input_Password = "Password";
 export type FRNZ_Input_Username = "Username";
 export type FRNZ_Input_Phone = "Phone";
 export type FRNZ_Input_Modern = "Modern";
 export type FRNZ_Input_Search = "Search";
 export type FRNZ_Input_gsap = "gsap";
+
+//type hamburger icons
+export type FRNZ_Hamburger_cross = "Cross"
+export type FRNZ_Hamburger_snowy = "Snowy"
+export type FRNZ_Hamburger_lazy = "Lazy"
+export type FRNZ_Hamburger_Wavy = "Wavy"
+
+//type svg path
+export type FRNZ_type_readonly = "readonly";
+export type FRNZ_type_readwrite = "readwrite";
+
+export type FRNZ_svg_Rating = "Rating";
+export type FRNZ_svg_Popup = "Popup";
+export type FRNZ_svg_Default = "Default";
 
 export type FRNZ_variantButton =
     // | FRNZ_GSAP
@@ -56,3 +69,20 @@ export type FRNZ_variantInput =
 // | FRNZ_Input_Username
 // | FRNZ_Input_Phone
 // | FRNZ_Input_gsap
+
+
+export type FRNZ_variantHamburger =
+    | FRNZ_Hamburger_cross
+    | FRNZ_Hamburger_lazy
+    | FRNZ_Hamburger_snowy
+    | FRNZ_Hamburger_Wavy
+
+export type FRNZ_variantSVG =
+    | FRNZ_svg_Rating
+    | FRNZ_svg_Popup
+    | FRNZ_svg_Default
+
+
+export type FRNZ_typeSVG =
+    | FRNZ_type_readonly
+    | FRNZ_type_readwrite

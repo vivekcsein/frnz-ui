@@ -30,16 +30,13 @@
 
 <p>import css from frnz-ui
     
-    import "frnz-ui/dist/styles/style.ui.css";
+    import "frnz-ui/dist/styles/style_ui.css";
 
 </p>
 
-<p>id is a string, the label is a string, and the variant is a string. you have to provide as props</p>
-
-<p>one example
+<p>Button example
 
     <Button
-    id="01"
     label="click me"
     variant="starlight"
     onClick={(e)=>{console.log("hello")}}
@@ -50,9 +47,51 @@
     }}
     fxc{{
         primary:"red",
-        bgc:"black",
         secondary:"green"
+        bgc:"black",
     }}
+    />
+
+</p>
+
+<p>Input Example
+
+    <Input
+        id="ok"
+         name="ok"
+        type="text"
+        variant="Password"
+        placeholder="Enter your password"
+        fx={
+            {
+                // padding: "2rem",
+                // color: "yellow",
+              }
+            }
+        // ref={useRef}
+    />
+
+</p>
+<p>Hamburger example
+
+    <Hamburger
+        variant="Snowy"
+        onClick={(e)=>{console.log("hamburger clicked")}}
+        debug={true}
+        color="red"
+    />
+
+</p>
+
+<p>to make borderless set strokeWidth property to -1</p>
+<p>SVG example
+
+    <SVG
+        variant="Rating"
+        show={40}
+        size={240}
+        strokeWidth={-5}
+        fxc={{ primary: "red", secondary: "green" }}
     />
 
 </p>

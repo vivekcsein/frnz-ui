@@ -1,0 +1,248 @@
+// created by vivekcse for frnz-ui for buttons styling
+// https://github.com/vivekcsein/frnz-ui
+
+.FRNZ_Hamburger {
+  width: 60px;
+  height: 45px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.Hamburger_cross span,
+.Hamburger_lazy span,
+.Hamburger_wavy span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.Hamburger_cross span:nth-child(1) {
+  top: 0px;
+}
+
+.Hamburger_cross span:nth-child(2) {
+  top: 18px;
+}
+
+.Hamburger_cross span:nth-child(3) {
+  top: 36px;
+}
+
+.Hamburger_cross.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.Hamburger_cross.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.Hamburger_cross.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+/* Icon 2 */
+.Hamburger_snowy span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 50%;
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.Hamburger_snowy span:nth-child(even) {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+}
+
+.Hamburger_snowy span:nth-child(odd) {
+  left: 0px;
+  border-radius: 9px 0 0 9px;
+}
+
+.Hamburger_snowy span:nth-child(1),
+.Hamburger_snowy span:nth-child(2) {
+  top: 0px;
+}
+
+.Hamburger_snowy span:nth-child(3),
+.Hamburger_snowy span:nth-child(4) {
+  top: 18px;
+}
+
+.Hamburger_snowy span:nth-child(5),
+.Hamburger_snowy span:nth-child(6) {
+  top: 36px;
+}
+
+.Hamburger_snowy.open span:nth-child(1),
+.Hamburger_snowy.open span:nth-child(6) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.Hamburger_snowy.open span:nth-child(2),
+.Hamburger_snowy.open span:nth-child(5) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.Hamburger_snowy.open span:nth-child(1) {
+  left: 5px;
+  top: 7px;
+}
+
+.Hamburger_snowy.open span:nth-child(2) {
+  left: calc(50% - 5px);
+  top: 7px;
+}
+
+.Hamburger_snowy.open span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+
+.Hamburger_snowy.open span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+
+.Hamburger_snowy.open span:nth-child(5) {
+  left: 5px;
+  top: 29px;
+}
+
+.Hamburger_snowy.open span:nth-child(6) {
+  left: calc(50% - 5px);
+  top: 29px;
+}
+
+/* Icon 3 */
+
+.Hamburger_wavy span:nth-child(1) {
+  top: 0px;
+}
+
+.Hamburger_wavy span:nth-child(2),
+.Hamburger_wavy span:nth-child(3) {
+  top: 18px;
+}
+
+.Hamburger_wavy span:nth-child(4) {
+  top: 36px;
+}
+
+.Hamburger_wavy.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.Hamburger_wavy.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.Hamburger_wavy.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.Hamburger_wavy.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+/* Icon 4 */
+
+.Hamburger_lazy span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.Hamburger_lazy span:nth-child(2) {
+  top: 18px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.Hamburger_lazy span:nth-child(3) {
+  top: 36px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.Hamburger_lazy.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+}
+
+.Hamburger_lazy.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.Hamburger_lazy.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
+}

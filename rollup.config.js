@@ -41,10 +41,10 @@ export default [
         external: [/\.(css|less|scss)$/]
     },
     {
-        input: "src/components/ui/styles.ui.ts",
+        input: "src/components/ui/styles_ui.ts",
         plugins: [
             scss({
-                output: 'dist/styles/styles.ui.css'
+                output: 'dist/styles/styles_ui.css'
             })
         ]
     }

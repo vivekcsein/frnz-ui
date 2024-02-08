@@ -15,6 +15,8 @@ const FRNZ_Input: React.FunctionComponent<FRNZ_InputProps> = ({
   variant,
   ...props
 }) => {
+
+  
   const frnz_key = id ? id : null;
   const variantUI = variant ? variant : "";
   const [vfx, setVfx] = useState<React.CSSProperties>(fx ? fx : {});
