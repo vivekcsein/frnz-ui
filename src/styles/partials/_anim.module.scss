@@ -19,3 +19,10 @@
     opacity: 0;
   }
 }
+
+//radientSpinner
+@keyframes FRNZ_Anim_Spin360 {
+  to {
+    transform: rotate(360deg);
+  }
+}

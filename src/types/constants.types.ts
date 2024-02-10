@@ -15,7 +15,6 @@ export type CustomVariant = string & { __type: 'CustomVariant' };
 export type FRNZ_Button_Backtotop = 'Backtotop';
 export type FRNZ_Button_BgcolorIN = 'BgcolorIN';
 export type FRNZ_Button_BgcolorOut = 'BgcolorOut';
-export type FRNZ_Button_Celebration = 'Celebration';
 export type FRNZ_Button_ArrowSlide = 'ArrowSlide';
 export type FRNZ_Button_I_wantAttention = 'I_wantAttention';
 export type FRNZ_Button_RainbowBorder = 'RainbowBorder';
@@ -24,6 +23,10 @@ export type FRNZ_Button_Spotlight = 'Spotlight';
 export type FRNZ_Button_Starlight = 'Starlight';
 export type FRNZ_Button_GSAP = 'gsap';
 export type FRNZ_Button_Navbar = 'navbar';
+export type FRNZ_Button_Gradient = 'Gradient';
+export type FRNZ_Button_Cameo = 'Cameo';
+export type FRNZ_Button_Royal = 'Royal';
+// export type FRNZ_Button_Celebration = 'Celebration';
 
 //type input
 export type FRNZ_Input_Password = "Password";
@@ -47,12 +50,20 @@ export type FRNZ_svg_Rating = "Rating";
 export type FRNZ_svg_Popup = "Popup";
 export type FRNZ_svg_Default = "Default";
 
+export type FRNZ_Loader_Default = "Default";
+export type FRNZ_Loader_Spinner = "Spinner";
+export type FRNZ_Loader_ladder = "Ladder";
+export type FRNZ_Loader_cradle = "Cradle";
+export type FRNZ_Loader_gradientSpin = "GradientSpin";
+export type FRNZ_Loader_dotspinner = "DotSpinner";
+export type FRNZ_Loader_radial = "Radial";
+export type FRNZ_Loader_Dots = "Dots";
+
 export type FRNZ_variantButton =
     // | FRNZ_GSAP
     | FRNZ_Button_Backtotop
     | FRNZ_Button_BgcolorIN
     | FRNZ_Button_BgcolorOut
-    | FRNZ_Button_Celebration
     | FRNZ_Button_ArrowSlide
     | FRNZ_Button_I_wantAttention
     | FRNZ_Button_RainbowBorder
@@ -60,6 +71,11 @@ export type FRNZ_variantButton =
     | FRNZ_Button_Spotlight
     | FRNZ_Button_Starlight
     | FRNZ_Button_Navbar
+    | FRNZ_Button_Gradient
+    | FRNZ_Button_Cameo
+    | FRNZ_Button_Royal
+
+// | FRNZ_Button_Celebration
 
 
 export type FRNZ_variantInput =
@@ -86,3 +102,13 @@ export type FRNZ_variantSVG =
 export type FRNZ_typeSVG =
     | FRNZ_type_readonly
     | FRNZ_type_readwrite
+
+export type FRNZ_variantLoader =
+    | FRNZ_Loader_Default
+    | FRNZ_Loader_Spinner
+    | FRNZ_Loader_ladder
+    | FRNZ_Loader_cradle
+    | FRNZ_Loader_gradientSpin
+    | FRNZ_Loader_dotspinner
+    | FRNZ_Loader_radial
+    | FRNZ_Loader_Dots

@@ -7,6 +7,9 @@ import FRNZ_Button_icon from "./FRNZ_Button_icon";
 import FRNZ_Button_starlight from "./FRNZ_Button_starlight";
 import FRNZ_Button_rainbow_border from "./FRNZ_Button_rainbow_border";
 import FRNZ_Button_backtotop from "./FRNZ_Button_backtotop";
+import FRNZ_Button_gradient from "./FRNZ_Button_gradient";
+import FRNZ_Button_cameo from "./FRNZ_Button_cameo";
+import FRNZ_Button_royal from "./FRNZ_Button_royal";
 
 const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
   id,
@@ -46,17 +49,6 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
           key={frnz_key}
           label={label}
           fxclass="frnz_ui_button_I_wantAttention"
-          children={children}
-          {...props}
-        />
-      );
-
-    case "Celebration":
-      return (
-        <FRNZ_Button_default
-          key={frnz_key}
-          label={label}
-          fxclass="frnz_ui_button_Celebration"
           children={children}
           {...props}
         />
@@ -122,17 +114,33 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
           {...props}
         />
       );
-
-    // case "gsap":
-    //   return (
-    //     <FRNZ_Button_gsap
-    //       key={frnz_key}
-    //       label={label}
-    //       animType={variantUI}
-    //       children={children}
-    //       {...props}
-    //     />
-    //   );
+    case "Gradient":
+      return (
+        <FRNZ_Button_gradient
+          key={frnz_key}
+          label={label}
+          children={children}
+          {...props}
+        />
+      );
+    case "Cameo":
+      return (
+        <FRNZ_Button_cameo
+          key={frnz_key}
+          label={label}
+          children={children}
+          {...props}
+        />
+      );
+    case "Royal":
+      return (
+        <FRNZ_Button_royal
+          key={frnz_key}
+          label={label}
+          children={children}
+          {...props}
+        />
+      );
 
     case "navbar":
       return (
@@ -144,6 +152,28 @@ const FRNZ_Button: React.FunctionComponent<FRNZ_ButtonProps> = ({
           {...props}
         />
       );
+
+    // case "Celebration":
+    //   return (
+    //     <FRNZ_Button_default
+    //       key={frnz_key}
+    //       label={label}
+    //       fxclass="frnz_ui_button_Celebration"
+    //       children={children}
+    //       {...props}
+    //     />
+    //   );
+
+    // case "gsap":
+    //   return (
+    //     <FRNZ_Button_gsap
+    //       key={frnz_key}
+    //       label={label}
+    //       animType={variantUI}
+    //       children={children}
+    //       {...props}
+    //     />
+    //   );
 
     default:
       return (

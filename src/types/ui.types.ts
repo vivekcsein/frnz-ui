@@ -1,6 +1,6 @@
 // all the types in components/ui folder will be defined here
 // input props
-import { togglecp, FRNZ_variantButton, FRNZ_variantInput, FRNZ_variantHamburger, FRNZ_variantSVG } from "./constants.types"
+import { togglecp, FRNZ_variantButton, FRNZ_variantInput, FRNZ_variantHamburger, FRNZ_variantSVG, FRNZ_variantLoader } from "./constants.types"
 
 export interface FRNZ_InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     id?: string;
@@ -21,14 +21,14 @@ export interface FRNZ_ButtonProps extends React.DetailedHTMLProps<React.ButtonHT
     fx?: React.CSSProperties;
     fxc?: togglecp;
 }
-
+// hamburger props
 export interface FRNZ_HamburgerProps {
     variant?: FRNZ_variantHamburger;
     onClick?: () => void;
     debug?: boolean;
     fxc?: togglecp;
 }
-
+//svg props
 export interface FRNZ_svgProps {
     id?: string;
     variant?: FRNZ_variantSVG;
@@ -39,9 +39,18 @@ export interface FRNZ_svgProps {
     pathd?: string;
     strokeWidth?: number;
     debug?: boolean;
-
 }
 
+// loader props
+export interface FRNZ_LoaderProps {
+    id?: string;
+    variant?: FRNZ_variantLoader;
+    fxc?: togglecp;
+    size?: number;
+    data?: number;
+}
+
+// parts
 export interface FRNZ_ButtonProps_default extends FRNZ_ButtonProps {
     fxclass?: string;
 }
@@ -69,4 +78,13 @@ export interface FRNZ_svg_PopupProps {
 
 export interface FRNZ_svg_RatingProps {
     svgData: FRNZ_svgDataProps;
+}
+
+export interface FRNZ_Loader_defaultProps {
+    fxc?: togglecp;
+    size?: number;
+}
+export interface FRNZ_Loader_radialProps {
+    size?: number;
+    data?: number;
 }
